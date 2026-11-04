@@ -1,0 +1,57 @@
+/*################################(CREATE STYLE)################################*/
+// Genesis Pro Builder · InSpatial Kit showcase theme. Intent theme: /*@THEME@*/
+const S = (name: string, web: Record<string, unknown>) => createStyle({ name, base: [{ web }] });
+const ink = "#2A1E17", muted = "#7A6A5E", cream = "/*@BG@*/", roast = "/*@PRIMARY@*/", ok = "#3F7D58", low = "#C2410C";
+const serif = "'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, ui-serif, serif";
+const sans = "Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif";
+const pill = { borderRadius: "999px", fontFamily: sans, fontWeight: "600", cursor: "pointer", border: "none", transition: "transform .18s ease, box-shadow .18s ease, background-color .18s ease", "&:hover": { transform: "translateY(-1px)" }, "&:active": { transform: "scale(.96)" } };
+
+export const EntryStyle = {
+  page: S("gp-page", { minHeight: "100vh", width: "100%", background: `radial-gradient(1200px 600px at 10% -10%, #FBEFDF 0%, ${cream} 55%)` }),
+  orders: S("gp-orders", { display: "flex", flexDirection: "column", gap: "14px" }),
+  orderList: S("gp-order-list", { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "12px" }),
+  orderChip: S("gp-order-chip", { display: "flex", gap: "12px", alignItems: "center", padding: "10px", borderRadius: "18px", backgroundColor: "#FFFDF9", border: "1px solid rgba(42,30,23,.07)", animation: "gpIn .4s ease both" }),
+  mono: S("gp-mono", { width: "100%", height: "100%", minHeight: "120px", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: serif, fontSize: "64px", fontWeight: "600", color: "rgba(255,248,240,.95)", background: `radial-gradient(circle at 30% 20%, rgba(255,255,255,.35), transparent 55%), linear-gradient(135deg, ${roast}, #2A1E17)` }),
+  orderMono: S("gp-order-mono", { width: "48px", height: "48px", borderRadius: "12px", flexShrink: "0", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: serif, fontSize: "22px", color: "#FFF8F0", background: `linear-gradient(135deg, ${roast}, #2A1E17)` }),
+  orderThumb: S("gp-order-thumb", { width: "48px", height: "48px", borderRadius: "12px", objectFit: "cover", flexShrink: "0" }),
+  orderText: S("gp-order-text", { display: "flex", flexDirection: "column", gap: "2px", minWidth: "0" }),
+  orderName: S("gp-order-name", { fontWeight: "600", fontSize: "14px" }),
+  orderMeta: S("gp-order-meta", { fontSize: "12px", color: muted }),
+  root: S("gp-root", { minHeight: "100vh", color: ink, fontFamily: sans, padding: "24px", boxSizing: "border-box", maxWidth: "1180px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "28px", "@media (max-width: 640px)": { padding: "12px", gap: "20px" } }),
+  hero: S("gp-hero", { position: "relative", borderRadius: "28px", overflow: "hidden", minHeight: "360px", display: "flex", alignItems: "flex-end", boxShadow: "0 30px 60px -30px rgba(42,30,23,.45)", "@media (max-width: 640px)": { minHeight: "470px", borderRadius: "22px" } }),
+  heroImg: S("gp-hero-img", { position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 35%", transform: "scale(1.02)" }),
+  heroShade: S("gp-hero-shade", { position: "absolute", inset: "0", background: "linear-gradient(180deg, rgba(20,14,10,0) 20%, rgba(20,14,10,.55) 60%, rgba(20,14,10,.86) 100%)", "@media (max-width: 640px)": { background: "linear-gradient(180deg, rgba(20,14,10,0) 5%, rgba(20,14,10,.6) 38%, rgba(20,14,10,.9) 100%)" } }),
+  heroBody: S("gp-hero-body", { position: "relative", padding: "32px", color: "#FFF8F0", display: "flex", flexDirection: "column", gap: "10px", width: "100%", boxSizing: "border-box", "@media (max-width: 640px)": { padding: "22px" } }),
+  eyebrow: S("gp-eyebrow", { fontSize: "12px", letterSpacing: ".14em", textTransform: "uppercase", opacity: ".82", fontWeight: "600" }),
+  title: S("gp-title", { fontFamily: serif, fontSize: "56px", lineHeight: "1", fontWeight: "600", letterSpacing: "-.02em", "@media (max-width: 640px)": { fontSize: "42px" } }),
+  subtitle: S("gp-subtitle", { fontSize: "16px", lineHeight: "1.5", maxWidth: "520px", opacity: ".9" }),
+  stats: S("gp-stats", { display: "flex", gap: "10px", marginTop: "10px", flexWrap: "wrap", "@media (max-width: 640px)": { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" } }),
+  stat: S("gp-stat", { padding: "10px 16px", borderRadius: "16px", backgroundColor: "rgba(255,248,240,.14)", backdropFilter: "blur(14px)", border: "1px solid rgba(255,248,240,.22)", display: "flex", alignItems: "flex-end", gap: "8px", "@media (max-width: 640px)": { flexDirection: "column", alignItems: "flex-start", gap: "0", padding: "10px 12px" } }),
+  statWarn: S("gp-stat-warn", { padding: "10px 16px", borderRadius: "16px", backgroundColor: "rgba(194,65,12,.55)", backdropFilter: "blur(14px)", border: "1px solid rgba(255,200,160,.35)", display: "flex", alignItems: "flex-end", gap: "8px", "@media (max-width: 640px)": { flexDirection: "column", alignItems: "flex-start", gap: "0", padding: "10px 12px" } }),
+  statNum: S("gp-stat-num", { fontFamily: serif, fontSize: "26px", fontWeight: "600" }),
+  statLabel: S("gp-stat-label", { fontSize: "13px", opacity: ".85" }),
+  sectionHead: S("gp-section-head", { display: "flex", justifyContent: "space-between", alignItems: "flex-end", padding: "0 4px", flexWrap: "wrap", gap: "6px" }),
+  sectionTitle: S("gp-section-title", { fontFamily: serif, fontSize: "28px", fontWeight: "600", letterSpacing: "-.01em" }),
+  sectionMeta: S("gp-section-meta", { fontSize: "13px", color: muted }),
+  grid: S("gp-grid", { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px", "@media (max-width: 640px)": { gridTemplateColumns: "1fr", gap: "14px" } }),
+  card: S("gp-card", { backgroundColor: "#FFFDF9", borderRadius: "24px", overflow: "hidden", border: "1px solid rgba(42,30,23,.07)", boxShadow: "0 1px 2px rgba(42,30,23,.04), 0 12px 32px -18px rgba(42,30,23,.28)", display: "flex", flexDirection: "column", transition: "transform .25s ease, box-shadow .25s ease", "&:hover": { transform: "translateY(-4px)", boxShadow: "0 2px 4px rgba(42,30,23,.05), 0 24px 44px -20px rgba(42,30,23,.38)" }, "@media (max-width: 640px)": { flexDirection: "row", borderRadius: "20px" } }),
+  media: S("gp-media", { position: "relative", aspectRatio: "4 / 3", overflow: "hidden", backgroundColor: "#EFE6DA", "@media (max-width: 640px)": { aspectRatio: "auto", width: "118px", flexShrink: "0" } }),
+  mediaImg: S("gp-media-img", { width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform .6s ease", "&:hover": { transform: "scale(1.06)" } }),
+  badgeOk: S("gp-badge-ok", { position: "absolute", top: "12px", left: "12px", padding: "5px 11px", borderRadius: "999px", fontSize: "11px", fontWeight: "700", letterSpacing: ".04em", backgroundColor: "rgba(255,253,249,.92)", color: ok, backdropFilter: "blur(8px)", "@media (max-width: 640px)": { top: "8px", left: "8px", fontSize: "10px", padding: "4px 8px" } }),
+  badgeLow: S("gp-badge-low", { position: "absolute", top: "12px", left: "12px", padding: "5px 11px", borderRadius: "999px", fontSize: "11px", fontWeight: "700", letterSpacing: ".04em", backgroundColor: low, color: "#FFF4EC", boxShadow: "0 6px 16px -6px rgba(194,65,12,.7)", "@media (max-width: 640px)": { top: "8px", left: "8px", fontSize: "10px", padding: "4px 8px" } }),
+  cardBody: S("gp-card-body", { padding: "18px 20px 20px", display: "flex", flexDirection: "column", gap: "6px", flex: "1", minWidth: "0", "@media (max-width: 640px)": { padding: "14px 14px 14px" } }),
+  name: S("gp-name", { fontFamily: serif, fontSize: "21px", fontWeight: "600", letterSpacing: "-.01em" }),
+  detail: S("gp-detail", { fontSize: "13px", color: muted, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }),
+  countRow: S("gp-count-row", { display: "flex", alignItems: "flex-end", gap: "6px", marginTop: "8px" }),
+  count: S("gp-count", { fontFamily: serif, fontSize: "36px", fontWeight: "600", lineHeight: "1", "@media (max-width: 640px)": { fontSize: "30px" } }),
+  unit: S("gp-unit", { fontSize: "13px", color: muted }),
+  track: S("gp-track", { height: "8px", borderRadius: "999px", backgroundColor: "#EFE6DA", overflow: "hidden", marginTop: "4px" }),
+  fill: S("gp-fill", { height: "100%", borderRadius: "999px", background: `linear-gradient(90deg, #6E9F7F, ${ok})`, transition: "width .5s cubic-bezier(.2,.8,.2,1)" }),
+  fillLow: S("gp-fill-low", { height: "100%", borderRadius: "999px", background: `linear-gradient(90deg, #F59E0B, ${low})`, transition: "width .5s cubic-bezier(.2,.8,.2,1)" }),
+  actions: S("gp-actions", { display: "flex", gap: "8px", marginTop: "12px", alignItems: "center" }),
+  step: S("gp-step", { ...pill, width: "40px", height: "40px", fontSize: "20px", lineHeight: "1", backgroundColor: "#F1E9DE", color: ink, display: "flex", alignItems: "center", justifyContent: "center", padding: "0", "&:hover": { transform: "translateY(-1px)", backgroundColor: "#E8DCCB" } }),
+  order: S("gp-order", { ...pill, flex: "1", height: "40px", padding: "0 16px", fontSize: "14px", backgroundColor: ink, color: "#FFF8F0", "&:hover": { transform: "translateY(-1px)", boxShadow: "0 10px 20px -10px rgba(42,30,23,.6)" } }),
+  orderHot: S("gp-order-hot", { ...pill, flex: "1", height: "40px", padding: "0 16px", fontSize: "14px", backgroundColor: roast, color: "#FFF8F0", boxShadow: "0 10px 22px -12px rgba(42,30,23,.5)", "&:hover": { transform: "translateY(-1px)", filter: "brightness(.92)" } }),
+  footer: S("gp-footer", { textAlign: "center", fontSize: "12px", color: muted, letterSpacing: ".06em", padding: "8px 0 24px" }),
+  toast: S("gp-toast", { position: "fixed", left: "50%", bottom: "24px", transform: "translateX(-50%)", padding: "14px 22px", borderRadius: "999px", backgroundColor: ink, color: "#FFF8F0", fontSize: "14px", fontWeight: "600", boxShadow: "0 18px 40px -16px rgba(0,0,0,.55)", whiteSpace: "nowrap", maxWidth: "92vw", overflow: "hidden", textOverflow: "ellipsis" }),
+};

@@ -1,0 +1,12 @@
+.env
+.env.*
+runs/
+data/ledger.json
+node_modules/
+*.log
+live/
+**/.inspatial/
+**/.cloud-session
+.editor-project-*.json
+*.code-workspace
+__pycache__/
